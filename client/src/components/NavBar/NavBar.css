@@ -1,0 +1,52 @@
+.navbar-container {
+    color: rgb(0, 0, 0);
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ffffff;
+    box-shadow:  0 0 10px 5px rgb(71, 71, 71);
+    margin-inline: auto;
+}
+.logo-nav{
+    height: 50px;
+}
+
+.boton-createDog{
+    background-color: #e68536; 
+    border: 1px solid #e68536;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+
+
+}
+.boton-createDog:hover{
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    color:#ffffff ;
+    border: 1px solid #000000;
+    
+
+
+
+}
+
+.buscador{
+    margin-left: 140px;
+}
+
+.huesito{
+    color: white;
+    text-decoration: none
+}
+
+
