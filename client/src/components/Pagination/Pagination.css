@@ -32,12 +32,14 @@
 } 
 .botonPrevNext{
     background-color: #ffffff;
-    border-color: white;
+    border-color: rgb(0, 0, 0);
     color: rgb(0, 0, 0);
     display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 60%;
+  width: 40px;
+  height: 25px;
+  border-radius: 10%;
   cursor: pointer;
+  margin-inline: auto;
+  box-shadow: 2px 2px 7px -2px black;
  
 }

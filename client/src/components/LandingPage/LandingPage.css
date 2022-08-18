@@ -1,6 +1,6 @@
 .coco{
     background-image: url(../../imagenes/dog6.jpg);
-    height: 100vh ;
+    height: 98.5vh ;
     /* margin-top: px; */
     background-attachment: fixed;
     background-size: cover;
@@ -12,8 +12,8 @@
     font-family: sans-serif; 
 }
 
- body{ 
-     background-image: url(../../imagenes/12.jpg);
+body{ 
+    background-image: url(../../imagenes/12.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -62,16 +62,26 @@
 
 .text-landing {
     color: white;
-    font-size: 100px;
+    font-size: 30px;
     position:absolute;
-    top:2%;
-    right: 74.5%;
-    background: none;
-    padding: 1% 7%;
-    width: 8%;
+    top:-6%;
+    right: 63.7%;
+    /* background: none; */
+    padding: 14% 1%;
+    /* width: 8%; */
     display: flex;
     text-transform: uppercase;
-    -webkit-text-stroke: 5px #eba56a;
+    /* -webkit-text-stroke: 5px #eba56a; */
+    align-items: flex-start;
+    flex-direction: column;
+    line-height: 40px;
+    text-shadow: 10px 12px 12px black;
+    white-space: nowrap;
 
+    }
 
+    .contenedor-texto{
+        display: flex;
+        align-items: flex-start;
+    flex-direction: column;
     }

@@ -11,14 +11,17 @@ export default function CreateDog() {
             <br />
             <div className="container-form">
                 {/* <div className="fondo"></div> */}
-                <img className="fondazo" src={Imagen} />
+                <img className="fondazo" src={Imagen} alt="fondo-patitas" />
                 <form className="container-input">
                     <h1 className="titulo-form">CREATE DOG!</h1>
 
                     <h3>Hola</h3>
                     <input type="text" placeholder="..." />
-                    <h3>Hola</h3>
-                    <input type="text" placeholder="..." />
+                    <h3>Temperamento...</h3>
+                    <select type="text">
+                        <option value="a">...</option>
+                        <option value="a">locaso</option>
+                    </select>
                     <h3>Hola</h3>
                     <input type="text" placeholder="..." />
                     <h3>Hola</h3>

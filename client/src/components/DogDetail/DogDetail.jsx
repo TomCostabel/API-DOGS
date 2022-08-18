@@ -33,6 +33,7 @@ const DogDetail = () => {
                     <img
                         className="imagen-detail"
                         src={`https://cdn2.thedogapi.com/images/${detallePerritos.reference_image_id}.jpg`}
+                        alt="pic-dog"
                     />
                 </div>
                 <div className="container-detail">

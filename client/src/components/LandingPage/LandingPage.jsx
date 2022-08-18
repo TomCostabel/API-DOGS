@@ -6,7 +6,11 @@ import "../LandingPage/LandingPage.css";
 const LandingPage = () => {
     return (
         <div className="coco">
-            {/* <h1 className="text-landing">Welcome to the dog API !</h1> */}
+            <div className="text-landing">
+                <h1>Hello, </h1>
+                <h1>welcome to</h1>
+                <h1>the doggie API!</h1>
+            </div>
             <Link to="/Home">
                 <button className="boton-landing">Click Here! </button>
             </Link>

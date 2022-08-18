@@ -10,11 +10,11 @@ export default function Pagination(props) {
                 <buttom
                     className={"individual" && "botonPrevNext"}
                     onClick={props.prevHandler}
-                    disabled={props.currentPage <= 0 && true}
+                    disabled={props.currentPage <= 1 && true}
                 >
                     &#171;
                 </buttom>
-                <h4 className="individual">{props.currentPage}</h4>
+                <h4 className="individual">{props.currentPage + 1}</h4>
                 <buttom
                     className={"individual" && "botonPrevNext"}
                     onClick={props.nextHandler}
