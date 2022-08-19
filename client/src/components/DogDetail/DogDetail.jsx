@@ -6,7 +6,6 @@ import "../DogDetail/DogDetail.css";
 import NavBar from "../NavBar/NavBar";
 
 const DogDetail = () => {
-    // const tomi = useParams();
     const { id } = useParams();
     const dispatch = useDispatch();
 
@@ -14,8 +13,6 @@ const DogDetail = () => {
         dispatch(getDogDetail(id));
     }, [dispatch, id]);
     const detallePerritos = useSelector((state) => state.dogDetail);
-    console.log("esto es dogdetaeeeil", detallePerritos);
-    console.log(id);
 
     if (!detallePerritos)
         return (

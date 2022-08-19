@@ -1,29 +1,32 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import "../Search/Search.css";
+// import React, { useState } from "react";
+// import { Link } from "react-router-dom";
+// import "../Search/Search.css";
 
-export default function Search() {
-    const [buscador, setBuscador] = useState("");
-    const handleChange = (e) => {
-        setBuscador(e.target.value);
-        console.log(e.target.value);
-    };
+// export default function Search() {
+//     const [buscador, setBuscador] = useState("");
 
-    return (
-        <div>
-            <input
-                value={buscador}
-                placeholder="Breed..."
-                onChange={(e) => handleChange(e)}
-            />
+//     const handleChange = (e) => {
+//         setBuscador(e.target.value);
+//         console.log(e.target.value);
+//     };
 
-            <button
-                onClick={() => alert(`el input es: ${buscador}`)}
-                type="submit"
-                className="boton"
-            >
-                Search
-            </button>
-        </div>
-    );
-}
+//     return (
+//         <div>
+//             <input
+//                 value={buscador}
+//                 placeholder="Breed..."
+//                 onChange={(e) => handleChange(e)}
+//             />
+
+//             <Link to={`/Home/breedDetail/${buscador}`}>
+//                 <button
+//                     // onClick={() => alert(`el input es: ${buscador}`)}
+//                     type="submit"
+//                     className="boton"
+//                 >
+//                     Search
+//                 </button>
+//             </Link>
+//         </div>
+//     );
+// }

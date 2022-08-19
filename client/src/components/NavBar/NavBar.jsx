@@ -10,9 +10,9 @@ const NavBar = () => {
             <Link to="/Home">
                 <img className="logo-nav" src={logo} alt="foto-navbar" />
             </Link>
-            <div className="buscador">
+            {/* <div className="buscador">
                 <Search />
-            </div>
+            </div> */}
 
             <Link to="/Home/CreateDog">
                 <button className="boton-createDog">Create Dog!</button>

@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 /* 
 
@@ -37,6 +37,6 @@
     transform: rotate(360deg);
   }
 } */
-a{
-  text-decoration: none;
+a {
+    text-decoration: none;
 }

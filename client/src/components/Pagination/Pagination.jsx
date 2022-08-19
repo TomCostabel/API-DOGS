@@ -7,21 +7,21 @@ export default function Pagination(props) {
     return (
         <div>
             <div className="container-buttons">
-                <buttom
+                <h3
                     className={"individual" && "botonPrevNext"}
                     onClick={props.prevHandler}
                     disabled={props.currentPage <= 1 && true}
                 >
-                    &#171;
-                </buttom>
-                <h4 className="individual">{props.currentPage + 1}</h4>
-                <buttom
+                    &#8592;
+                </h3>
+                <h4 className="individual">PAGE {props.currentPage + 1}</h4>
+                <h3
                     className={"individual" && "botonPrevNext"}
                     onClick={props.nextHandler}
                     disabled={props.currentPage >= 21 && true}
                 >
-                    &#187;
-                </buttom>
+                    &#8594;
+                </h3>
             </div>
             <br />
             <div className="container-padre">

@@ -1,8 +1,16 @@
-.container-cards{
+.container-cards {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 30px;
-    
+}
+.buscador {
+    /* margin-top: -75px; */
+    border-radius: 10px;
+    height: 25px;
+    width: 200px;
+    position: absolute;
+    left: 40px;
+    margin-top: 10px;
 }
