@@ -1,40 +1,39 @@
-.coco{
+.coco {
     background-image: url(../../imagenes/dog6.jpg);
-    height: 98.5vh ;
+    height: 98.5vh;
     /* margin-top: px; */
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    background-origin: left; 
+    background-origin: left;
 
-    
-    line-height: 1.6;;
-    font-family: sans-serif; 
+    line-height: 1.6;
+    font-family: sans-serif;
 }
 
-body{ 
+body {
     background-image: url(../../imagenes/12.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    background-origin: left; 
+    background-origin: left;
 
     margin: 0;
     padding: 0;
-    
-    line-height: 1.6;;
-    font-family: sans-serif;  
+
+    line-height: 1.6;
+    font-family: sans-serif;
     /* backdrop-filter: blur(10px); */
-} 
+}
 /* *{
     margin: 0;
     padding: 0;
 } */
 
-.boton-landing{
+.boton-landing {
     border: none;
-    position:absolute;
-    top:66%;
+    position: absolute;
+    top: 66%;
     right: 75%;
     background: none;
     padding: 1% 7%;
@@ -42,9 +41,9 @@ body{
     display: inline-block;
     text-transform: uppercase;
     background: #eba56a;
-    color:#fff;
+    color: #fff;
     letter-spacing: 40%;
-    font-size:110%;
+    font-size: 110%;
     font-weight: 600;
     border-radius: 5%;
     /* transform-style: preserve-3d; */
@@ -52,19 +51,17 @@ body{
     outline: 1px solid transparent;
     transition: all 0.75s ease-out;
     cursor: pointer;
-
-    }
-.boton-landing:hover{
+}
+.boton-landing:hover {
     background: #ffffff;
-    color:#000000
-
-    }
+    color: #000000;
+}
 
 .text-landing {
     color: white;
     font-size: 30px;
-    position:absolute;
-    top:-6%;
+    position: absolute;
+    top: -6%;
     right: 63.7%;
     /* background: none; */
     padding: 14% 1%;
@@ -77,11 +74,10 @@ body{
     line-height: 40px;
     text-shadow: 10px 12px 12px black;
     white-space: nowrap;
+}
 
-    }
-
-    .contenedor-texto{
-        display: flex;
-        align-items: flex-start;
+.contenedor-texto {
+    display: flex;
+    align-items: flex-start;
     flex-direction: column;
-    }
+}

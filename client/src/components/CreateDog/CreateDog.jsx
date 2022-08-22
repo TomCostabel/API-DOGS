@@ -23,14 +23,13 @@ export default function CreateDog() {
                         <option value="a">locaso</option>
                     </select>
                     <h3>Hola</h3>
-                    <input type="text" placeholder="..." />
+                    <input type="range" placeholder="..." />
                     <h3>Hola</h3>
                     <input type="text" placeholder="..." />
                     <h3>Hola</h3>
                     <input type="text" placeholder="..." />
                     <h3>Hola</h3>
                     <input type="text" placeholder="..." />
-                    {/* <img src={Imagen} /> */}
                     <br />
                     <br />
 
