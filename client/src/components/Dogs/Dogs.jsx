@@ -5,6 +5,7 @@ import DogCard from "../DogCard/DogCard";
 import "../Dogs/Dogs.css";
 import Pagination from "../Pagination/Pagination";
 import NavBar from "../NavBar/NavBar";
+import Temperaments from "../Temperaments/Temperaments.jsx";
 
 const Dogs = () => {
     ///////////////////////////////////////////////--MIS STATES--//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -143,24 +144,28 @@ const Dogs = () => {
                 />
 
                 {/* <select onChange={(e) => handleSort(e)}> */}
-                <select
-                    onChange={(e) => {
-                        dispatch(sortBy(e.target.value));
-                    }}
-                >
-                    <option>Order</option>
-                    <option value="ASC">Z-A</option>
-                    <option value="DESC">A-Z</option>
-                </select>
-                <select
-                    onChange={(e) => {
-                        dispatch(sortBy(e.target.value));
-                    }}
-                >
-                    <option>Order</option>
-                    <option value="mayorPeso">kg +</option>
-                    <option value="menorPeso">kg -</option>
-                </select>
+
+                <div className="select-position">
+                    <select
+                        onChange={(e) => {
+                            dispatch(sortBy(e.target.value));
+                        }}
+                    >
+                        <option>Order abc...</option>
+                        <option value="DESC">A-Z</option>
+                        <option value="ASC">Z-A</option>
+                    </select>
+
+                    <select
+                        onChange={(e) => {
+                            dispatch(sortBy(e.target.value));
+                        }}
+                    >
+                        <option>Order by weight</option>
+                        <option value="mayorPeso">kg +</option>
+                        <option value="menorPeso">kg -</option>
+                    </select>
+                </div>
 
                 <Pagination
                     nextHandler={nextHandler}

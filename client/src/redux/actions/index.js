@@ -4,12 +4,8 @@ export const GET_ALL_DOGS_ID = "GET_ALL_DOGS_ID";
 export const FILTRO_PESO = "FILTRO_PESO";
 export const SET_SORT = "SET_SORT";
 
-// const API_KEY = '0f2efe03-3eee-449e-9d0d-4524a73230e6'
-
 export const getAllDogs = () => async (dispatch) => {
-    const res = await axios.get(
-        "https://api.thedogapi.com/v1/breeds?api_key=0f2efe03-3eee-449e-9d0d-4524a73230e6"
-    );
+    const res = await axios.get("http://localhost:3001/dogs");
 
     dispatch({
         type: GET_ALL_DOGS,
@@ -21,7 +17,8 @@ export function getDogDetail(id) {
     return async function (dispatch) {
         try {
             const res = await axios.get(
-                `https://api.thedogapi.com/v1/breeds/${id}`
+                // `https://api.thedogapi.com/v1/breeds/${id}`
+                "http://localhost:3001/dogs/" + id
             );
             dispatch({
                 type: GET_ALL_DOGS_ID,
