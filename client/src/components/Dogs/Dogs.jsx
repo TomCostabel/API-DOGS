@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllDogs, sortBy } from "../../redux/actions";
+import {
+    filterByTemp,
+    getAllDogs,
+    getTemperaments,
+    sortBy,
+} from "../../redux/actions";
 import DogCard from "../DogCard/DogCard";
 import "../Dogs/Dogs.css";
 import Pagination from "../Pagination/Pagination";
 import NavBar from "../NavBar/NavBar";
-import Temperaments from "../Temperaments/Temperaments.jsx";
 
 const Dogs = () => {
     ///////////////////////////////////////////////--MIS STATES--//////////////////////////////////////////////////////////////////////////////////////////////////////
     const sortByState = useSelector((state) => state.sortBy);
     const perris = useSelector((state) => state.dogs);
+    const temps = useSelector((state) => state.temperaments);
     const [datosFromApi, setDatosFromApi] = useState([]);
 
     const [actualDogs, setActualDogs] = useState([]);
@@ -19,6 +24,8 @@ const Dogs = () => {
 
     const [loading, setLoading] = useState(true);
 
+    const [temperamentos, setTemperamentos] = useState([]);
+
     // const [orden, setOrden] = useState("");
 
     const ITEMS_X_PAGE = 8;
@@ -26,6 +33,13 @@ const Dogs = () => {
     ///////////////////////////////////////////////--LLAMADOS--////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (!temps.length) dispatch(getTemperaments());
+        setTemperamentos(temps);
+        console.log("estos son los temperamentos", temperamentos);
+    }, [temps, temperamentos]);
+
     useEffect(() => {
         if (perris.length && !datosFromApi.length) setDatosFromApi(perris);
         if (!datosFromApi.length) dispatch(getAllDogs());
@@ -86,7 +100,7 @@ const Dogs = () => {
             />
         );
     });
-    console.log("array de perros", perritos);
+    // console.log("array de perros", perritos);
 
     ////////////////////////////////////////////////////////--BUSCADOR--/////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -114,14 +128,6 @@ const Dogs = () => {
         setLoading(false);
     }, 1300);
 
-    ////////////////////////////////////////////////////////--FILTRADO POR ALFABETO--/////////////////////////////////////////////////////////////////////////////////////////////////
-
-    // function handleSort(e) {
-    //     e.preventDefault();
-    //     dispatch(filtroAlfabetico(e.target.value));
-    //     setOrden(e.target.value);
-    //     console.log("esto es el orden", orden);
-    // }
     ////////////////////////////////////////////////////////--RETURN--/////////////////////////////////////////////////////////////////////////////////////////////////
 
     if (loading === true)
@@ -155,7 +161,6 @@ const Dogs = () => {
                         <option value="DESC">A-Z</option>
                         <option value="ASC">Z-A</option>
                     </select>
-
                     <select
                         onChange={(e) => {
                             dispatch(sortBy(e.target.value));
@@ -164,6 +169,22 @@ const Dogs = () => {
                         <option>Order by weight</option>
                         <option value="mayorPeso">kg +</option>
                         <option value="menorPeso">kg -</option>
+                    </select>
+
+                    <select
+                        onChange={(e) => {
+                            dispatch(filterByTemp(e.target.value));
+                        }}
+                    >
+                        <option value="All">Order by temps</option>
+                        {temps?.map((el) => {
+                            return (
+                                <option value={el} key={el}>
+                                    {el}
+                                </option>
+                            );
+                        })}
+                        ;
                     </select>
                 </div>
 

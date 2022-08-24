@@ -3,6 +3,8 @@ export const GET_ALL_DOGS = "GET_ALL_DOGS";
 export const GET_ALL_DOGS_ID = "GET_ALL_DOGS_ID";
 export const FILTRO_PESO = "FILTRO_PESO";
 export const SET_SORT = "SET_SORT";
+export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS";
+export const FILTER_BY_TEMPERAMENT = "FILTER_BY_TEMPERAMENT";
 
 export const getAllDogs = () => async (dispatch) => {
     const res = await axios.get("http://localhost:3001/dogs");
@@ -36,3 +38,25 @@ export function sortBy(sortType) {
         payload: sortType,
     };
 }
+export function filterByTemp(payload) {
+    return {
+        type: FILTER_BY_TEMPERAMENT,
+        payload,
+    };
+}
+
+export const getTemperaments = () => async (dispatch) => {
+    const res = await axios.get("http://localhost:3001/temperaments");
+    dispatch({
+        type: GET_TEMPERAMENTS,
+        payload: res.data,
+    });
+};
+
+// export const filterTemps = () => async (dispatch) => {
+//     const res = await axios.get("http://localhost:3001/temperaments");
+//     dispatch({
+//         type: GET_TEMPERAMENTS,
+//         payload: res.data,
+//     });
+// };

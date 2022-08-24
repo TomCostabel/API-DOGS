@@ -1,4 +1,10 @@
-import { GET_ALL_DOGS, GET_ALL_DOGS_ID, SET_SORT } from "../actions/index.js";
+import {
+    GET_ALL_DOGS,
+    GET_ALL_DOGS_ID,
+    SET_SORT,
+    GET_TEMPERAMENTS,
+    FILTER_BY_TEMPERAMENT,
+} from "../actions/index.js";
 
 const initialState = {
     dogs: [],
@@ -6,13 +12,20 @@ const initialState = {
     temperaments: [],
     dogsOrdenamiento: [],
     sortBy: "",
+    allDogs: [],
 };
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+        case GET_TEMPERAMENTS:
+            return {
+                ...state,
+                temperaments: action.payload,
+            };
         case GET_ALL_DOGS:
             return {
                 ...state,
                 dogs: action.payload,
+                allDogs: action.payload,
             };
         case GET_ALL_DOGS_ID:
             return {
@@ -61,10 +74,27 @@ const rootReducer = (state = initialState, action) => {
                     : action.payload === "ASC"
                     ? state.dogs.sort((a, b) => b.name.localeCompare(a.name))
                     : state.dogs.sort((a, b) => a.name.localeCompare(b.name));
+
             return {
                 ...state,
                 sortBy: action.payload,
                 dogs: sortedDogs,
+            };
+
+        case FILTER_BY_TEMPERAMENT:
+            const allTemps = state.allDogs;
+            const tempDogFilter =
+                action.payload === "All"
+                    ? allTemps
+                    : allTemps?.filter((e) => {
+                          if (e.temperament) {
+                              return e.temperament.includes(action.payload);
+                          }
+                          return null;
+                      });
+            return {
+                ...state,
+                dogs: tempDogFilter,
             };
 
         default:
