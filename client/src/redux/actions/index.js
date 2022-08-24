@@ -30,12 +30,6 @@ export function getDogDetail(id) {
     };
 }
 
-// export function filtradoPeso(payload) {
-//     return {
-//         type: FILTRO_PESO,
-//         payload,
-//     };
-// }
 export function sortBy(sortType) {
     return {
         type: SET_SORT,

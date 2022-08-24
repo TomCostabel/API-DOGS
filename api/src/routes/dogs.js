@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const axios = require("axios");
-// const { API_KEY } = process.env;
-// const { api } = require("./Controllers/GetAllDogs.js");
+
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -27,6 +26,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:idRaza", async (req, res) => {
+    // console.log(req.params);
     const idRaza = req.params.idRaza;
     try {
         let dogsTotal = await api();

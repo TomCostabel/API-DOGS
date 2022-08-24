@@ -23,7 +23,4 @@ export default function Temperaments() {
         console.log("la wea pusheada", arrTemps);
         return arrTemps;
     };
-
-    console.log("Holis soy temperamentos", getAllTemperaments());
-    return <div>Holis soy temperamentos</div>;
 }
