@@ -48,8 +48,16 @@ const rootReducer = (state = initialState, action) => {
                           //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                           if (
-                              Number(a.weight.metric.split("-")[0]) >
-                              Number(b.weight.metric.split("-")[0])
+                              Number(
+                                  a.weight.metric.split("-")[1]
+                                      ? a.weight.metric.split("-")[1]
+                                      : a.weight.metric.split("-")[0]
+                              ) >
+                              Number(
+                                  b.weight.metric.split("-")[1]
+                                      ? b.weight.metric.split("-")[1]
+                                      : b.weight.metric.split("-")[0]
+                              )
                           )
                               return -1;
                       })
@@ -66,8 +74,16 @@ const rootReducer = (state = initialState, action) => {
                           /////////////////////// ///////////////////////
 
                           if (
-                              Number(a.weight.metric.split("-")[0]) <
-                              Number(b.weight.metric.split("-")[0])
+                              Number(
+                                  a.weight.metric.split("-")[1]
+                                      ? a.weight.metric.split("-")[1]
+                                      : a.weight.metric.split("-")[0]
+                              ) <
+                              Number(
+                                  b.weight.metric.split("-")[1]
+                                      ? b.weight.metric.split("-")[1]
+                                      : b.weight.metric.split("-")[0]
+                              )
                           )
                               return -1;
                       })

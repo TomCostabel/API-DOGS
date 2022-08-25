@@ -1,39 +1,184 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../NavBar/NavBar.jsx";
 import "../CreateDog/CreateDog.css";
 import Imagen from "../../imagenes/fondoForm.png";
+import { useDispatch, useSelector } from "react-redux";
+import { getTemperaments } from "../../redux/actions/index.js";
 
 export default function CreateDog() {
+    const dispatch = useDispatch();
+    const temperaments = useSelector((state) => state.temperaments);
+
+    const [input, setInput] = useState({
+        name: "",
+        heightMin: "",
+        heightMax: "",
+        weightMin: "",
+        weightMax: "",
+        lifespan: "",
+        image: "",
+        temperament: [],
+    });
+    const [error, setError] = useState({});
+
+    //------------------------------------------------------------VALIDACIONES----------------------------------------------------
+    const validaciones = function (input) {
+        const error = {};
+        if (!input.name) {
+            error.name = "Nombre es requerido";
+        }
+        if (!input.heightMin) {
+            error.heightMin = "heightMin es requerido";
+        }
+        if (!input.heightMax) {
+            error.heightMax = "heightMax es requerido";
+        }
+        if (!input.weightMin) {
+            error.weightMin = "weightMin es requerido";
+        }
+        if (!input.weightMax) {
+            error.weightMax = "weightMax es requerido";
+        }
+        if (!input.weightMax) {
+            error.weightMax = "weightMax es requerido";
+        }
+        //--------------------heightMin----------------------------
+        if (input.heightMin < 1) {
+            error.heightMin = "heightMin no puede ser 0";
+        }
+        if (input.heightMin > input.heightMax) {
+            error.heightMin = "heightMin no puede ser mayor que heightMax";
+        }
+        //--------------------heightMax----------------------------
+        if (input.heightMax < 1) {
+            error.heightMax = "heightMax no puede ser 0";
+        }
+        if (input.heightMax < input.heightMin) {
+            error.heightMax = "heightMax no puede ser menor que heightMin";
+        }
+        if (input.heightMax > 105) {
+            error.heightMax = "heightMax no puede ser mayor a 105";
+        }
+        //--------------------weightMin----------------------------
+        if (input.weightMin < 1) {
+            error.weightMin = "weightMin no puede ser 0";
+        }
+        if (input.weightMin > input.heightMax) {
+            error.weightMin = "weightMin no puede ser mayor que heightMax";
+        }
+        //--------------------weightMax----------------------------
+        if (input.weightMax < 1) {
+            error.weightMax = "weightMax no puede ser 0";
+        }
+        if (input.weightMax > 110) {
+            error.weightMax = "weightMax no puede ser mayor a 110";
+        }
+        if (input.weightMax < input.heightMin) {
+            error.weightMax = "weightMax no puede ser menor que heightMin";
+        }
+    };
+
+    //------------------------------------------------USE_EFFECTS----------------------------------------------------------------
+
+    useEffect(() => {
+        dispatch(getTemperaments());
+    }, [dispatch]);
+
+    //------------------------------------------------HANDLE----------------------------------------------------------------
+
+    const handleChangeInput = (e) => {
+        e.preventDefault();
+        setInput((input) => {
+            const nuevoInput = {
+                ...input,
+                [e.target.name]: e.target.value,
+            };
+            const error = validaciones(nuevoInput);
+            console.log(error);
+            setError(error);
+            return nuevoInput;
+        });
+    };
+
     return (
         <div>
             <NavBar />
             <br />
             <br />
             <div className="container-form">
-                {/* <div className="fondo"></div> */}
                 <img className="fondazo" src={Imagen} alt="fondo-patitas" />
                 <form className="container-input">
                     <h1 className="titulo-form">CREATE DOG!</h1>
 
-                    <h3>Hola</h3>
-                    <input type="text" placeholder="..." />
-                    <h3>Temperamento...</h3>
-                    <select type="text">
-                        <option value="a">...</option>
-                        <option value="a">locaso</option>
-                    </select>
-                    <h3>Hola</h3>
-                    <input type="range" placeholder="..." />
-                    <h3>Hola</h3>
-                    <input type="text" placeholder="..." />
-                    <h3>Hola</h3>
-                    <input type="text" placeholder="..." />
-                    <h3>Hola</h3>
-                    <input type="text" placeholder="..." />
+                    <label>Name:</label>
+                    <input
+                        type="text"
+                        name="name"
+                        value={input.name}
+                        onChange={(e) => handleChangeInput(e)}
+                    />
+                    <div>
+                        <h4>Height (cm) </h4>
+                        <label>Min:</label>
+                        <input
+                            type="text"
+                            name="heightMin"
+                            value={input.heightMin}
+                            onChange={(e) => handleChangeInput(e)}
+                        />
+                        <label>Max:</label>
+                        <input
+                            type="text"
+                            name="heightMax"
+                            value={input.heightMax}
+                            onChange={(e) => handleChangeInput(e)}
+                        />
+                    </div>
+                    <div>
+                        <h4>Weight (Kg)</h4>
+                        <label>Min:</label>
+                        <input
+                            type="text"
+                            name="weightMin"
+                            value={input.weightMin}
+                            onChange={(e) => handleChangeInput(e)}
+                        />
+                        <label>Max:</label>
+                        <input
+                            type="text"
+                            name="weightMax"
+                            value={input.weightMax}
+                            onChange={(e) => handleChangeInput(e)}
+                        />
+                    </div>
+                    <div>
+                        <h4>Life span (years)</h4>
+                        <label>Min:</label>
+                        <input type="text" />
+                        <label>Max:</label>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <label>Image url:</label>
+                        <input
+                            type="text"
+                            placeholder="Paste your image link..."
+                        />
+                    </div>
+                    <div>
+                        <label>Temperaments</label>
+                        <select>
+                            {temperaments?.map((e) => (
+                                <option key={e} value={e}>
+                                    {e}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
                     <br />
                     <br />
 
-                    <button className="button-form">Submit</button>
+                    <button className="button-form">Create breed</button>
                 </form>
             </div>
         </div>

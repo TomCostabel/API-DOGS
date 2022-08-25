@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const axios = require("axios");
-
+const dog = require("../models/Dog");
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -42,5 +42,14 @@ router.get("/:idRaza", async (req, res) => {
         console.log(error);
     }
 });
+// router.post("/", async (req, res) => {
+//     console.log("esto es BODY", req.body);
+
+//     try {
+//         res.status(200).json("DATA FUNCIONANDO");
+//     } catch (error) {
+//         console.log("error en post ", error);
+//     }
+// });
 
 module.exports = router;
