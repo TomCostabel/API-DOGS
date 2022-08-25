@@ -37,7 +37,7 @@ const Dogs = () => {
     useEffect(() => {
         if (!temps.length) dispatch(getTemperaments());
         setTemperamentos(temps);
-        console.log("estos son los temperamentos", temperamentos);
+        // console.log("estos son los temperamentos", temperamentos);
     }, [temps, temperamentos]);
 
     useEffect(() => {
@@ -50,21 +50,17 @@ const Dogs = () => {
                 currentPage * ITEMS_X_PAGE + ITEMS_X_PAGE
             )
         );
-        console.log(sortByState);
+        console.log("datos", actualDogs);
     }, [dispatch, datosFromApi, perris, sortByState, currentPage]);
 
     ///////////////////////////////////////////////--NEXT HANDLER--////////////////////////////////////////////////////////////////////////////////////////////////////
 
     const nextHandler = () => {
-        // const totalElementos = datosFromApi.length;
-
         const nextPage = currentPage + 1;
 
         const firstIndex = nextPage * ITEMS_X_PAGE;
 
-        // if (nextPage === totalElementos) return;
-        if (nextPage > 21) return;
-
+        if (actualDogs.length < 8) return;
         setActualDogs(
             [...datosFromApi].slice(firstIndex, firstIndex + ITEMS_X_PAGE)
         );

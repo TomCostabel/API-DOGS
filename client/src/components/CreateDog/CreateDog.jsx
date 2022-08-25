@@ -100,6 +100,34 @@ export default function CreateDog() {
         });
     };
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        if (
+            input.name &&
+            input.heightMin &&
+            input.heightMax &&
+            input.weightMin &&
+            input.weightMax &&
+            input.lifespan &&
+            input.temperament
+        ) {
+            // dispatch('create dog cuando lo hagas');
+            alert("Dog created!");
+            setInput({
+                name: "",
+                heightMin: "",
+                heightMax: "",
+                weightMin: "",
+                weightMax: "",
+                lifespan: "",
+                image: "",
+                temperament: [],
+            });
+        } else {
+            alert("Please, fill in all the required fields");
+        }
+    }
+
     return (
         <div>
             <NavBar />
@@ -178,7 +206,12 @@ export default function CreateDog() {
                     <br />
                     <br />
 
-                    <button className="button-form">Create breed</button>
+                    <button
+                        className="button-form"
+                        onSubmit={(e) => handleSubmit(e)}
+                    >
+                        Create breed
+                    </button>
                 </form>
             </div>
         </div>
