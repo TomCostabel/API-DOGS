@@ -110,8 +110,8 @@ Se debe desarrollar una aplicación de React/Redux que contenga las siguientes p
 
 **Ruta principal**: debe contener
 
--   [ ] Input de búsqueda para encontrar razas de perros por nombre
--   [ ] Área donde se verá el listado de razas de perros. Deberá mostrar su:
+-   [✅] Input de búsqueda para encontrar razas de perros por nombre
+-   [✅] Área donde se verá el listado de razas de perros. Deberá mostrar su:
     -   Imagen
     -   Nombre
     -   Temperamento
@@ -119,19 +119,19 @@ Se debe desarrollar una aplicación de React/Redux que contenga las siguientes p
 -   [ ] Botones/Opciones para filtrar por:
     -   Temperamento
     -   Raza existente (es decir las que vienen de la API) o agregada por nosotros (creadas mediante el form)
--   [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente las razas de perro por:
+-   [✅] Botones/Opciones para ordenar tanto ascendentemente como descendentemente las razas de perro por:
     -   Orden alfabético
     -   Peso
--   [ ] Paginado para ir buscando y mostrando las siguientes razas, mostrando 8 razas por página.
+-   [✅] Paginado para ir buscando y mostrando las siguientes razas, mostrando 8 razas por página.
 
 **IMPORTANTE**: Dentro de la Ruta Principal se deben mostrar tanto las razas de perros traidas desde la API como así también las de la base de datos, pero NO está permitido almacenar en la base de datos las razas de perros de la API sino que solamente se pueden guardar aquellas creadas desde el form.
 
 **Ruta de detalle de raza de perro**: debe contener
 
--   [ ] Los campos mostrados en la ruta principal para cada raza (imagen, nombre y temperamento)
--   [ ] Altura
--   [ ] Peso
--   [ ] Años de vida
+-   [✅] Los campos mostrados en la ruta principal para cada raza (imagen, nombre y temperamento)
+-   [✅] Altura
+-   [✅] Peso
+-   [✅] Años de vida
 
 **Ruta de creación de raza de perro**: debe contener
 
@@ -149,13 +149,13 @@ Se debe desarrollar una aplicación de React/Redux que contenga las siguientes p
 
 El modelo de la base de datos deberá tener las siguientes entidades (Aquellas propiedades marcadas con asterísco deben ser obligatorias):
 
--   [ ] Raza con las siguientes propiedades:
+-   [✅] Raza con las siguientes propiedades:
     -   ID \*
     -   Nombre \*
     -   Altura \*
     -   Peso \*
     -   Años de vida
--   [ ] Temperamento con las siguientes propiedades:
+-   [✅] Temperamento con las siguientes propiedades:
     -   ID
     -   Nombre
 
@@ -169,20 +169,20 @@ Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
 
 **IMPORTANTE**: No está permitido utilizar los filtrados, ordenamientos y paginados brindados por la API externa, todas estas funcionalidades tienen que implementarlas ustedes.
 
--   [ ] **GET /dogs**:
+-   [✅] **GET /dogs**:
     -   Obtener un listado de las razas de perro
     -   Debe devolver solo los datos necesarios para la ruta principal
--   [ ] **GET /dogs?name="..."**:
+-   [✅] **GET /dogs?name="..."**:
     -   Obtener un listado de las razas de perro que contengan la palabra ingresada como query parameter
     -   Si no existe ninguna raza de perro mostrar un mensaje adecuado
--   [ ] **GET /dogs/{idRaza}**:
+-   [✅] **GET /dogs/{idRaza}**:
     -   Obtener el detalle de una raza de perro en particular
     -   Debe traer solo los datos pedidos en la ruta de detalle de raza de perro
     -   Incluir los temperamentos asociados
 -   [ ] **POST /dogs**:
     -   Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body
     -   Crea una raza de perro en la base de datos relacionada con sus temperamentos
--   [ ] **GET /temperaments**:
+-   [✅] **GET /temperaments**:
     -   Obtener todos los temperamentos posibles
     -   En una primera instancia deberán obtenerlos desde la API externa y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
 
