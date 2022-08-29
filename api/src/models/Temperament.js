@@ -1,15 +1,15 @@
 const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
     sequelize.define("temperament", {
-        id: {
+        nameTemp: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        idTemp: {
             type: DataTypes.UUID,
             allowNull: false,
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4,
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
         },
     });
 };

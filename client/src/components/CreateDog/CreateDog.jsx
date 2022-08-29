@@ -3,7 +3,7 @@ import NavBar from "../NavBar/NavBar.jsx";
 import "../CreateDog/CreateDog.css";
 import Imagen from "../../imagenes/fondoForm.png";
 import { useDispatch, useSelector } from "react-redux";
-import { getTemperaments } from "../../redux/actions/index.js";
+import { createDog, getTemperaments } from "../../redux/actions/index.js";
 
 export default function CreateDog() {
     const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export default function CreateDog() {
         image: "",
         temperament: [],
     });
-    const [error, setError] = useState({});
+    const [errorazo, setErrorazo] = useState({});
 
     //------------------------------------------------------------VALIDACIONES----------------------------------------------------
     const validaciones = function (input) {
@@ -94,8 +94,7 @@ export default function CreateDog() {
                 [e.target.name]: e.target.value,
             };
             const error = validaciones(nuevoInput);
-            console.log(error);
-            setError(error);
+            setErrorazo(error);
             return nuevoInput;
         });
     };
@@ -108,10 +107,11 @@ export default function CreateDog() {
             input.heightMax &&
             input.weightMin &&
             input.weightMax &&
-            input.lifespan &&
+            input.lifespanMin &&
+            input.lifespanMax &&
             input.temperament
         ) {
-            // dispatch('create dog cuando lo hagas');
+            dispatch(createDog(input));
             alert("Dog created!");
             setInput({
                 name: "",
@@ -119,7 +119,8 @@ export default function CreateDog() {
                 heightMax: "",
                 weightMin: "",
                 weightMax: "",
-                lifespan: "",
+                lifespanMin: "",
+                lifespanMax: "",
                 image: "",
                 temperament: [],
             });
@@ -135,7 +136,10 @@ export default function CreateDog() {
             <br />
             <div className="container-form">
                 <img className="fondazo" src={Imagen} alt="fondo-patitas" />
-                <form className="container-input">
+                <form
+                    className="container-input"
+                    onSubmit={(e) => handleSubmit(e)}
+                >
                     <h1 className="titulo-form">CREATE DOG!</h1>
 
                     <label>Name:</label>
@@ -182,22 +186,40 @@ export default function CreateDog() {
                     <div>
                         <h4>Life span (years)</h4>
                         <label>Min:</label>
-                        <input type="text" />
+                        <input
+                            type="text"
+                            name="lifespanMin"
+                            value={input.lifespanMin}
+                            onChange={(e) => handleChangeInput(e)}
+                        />
                         <label>Max:</label>
-                        <input type="text" />
+                        <input
+                            type="text"
+                            name="lifespanMax"
+                            value={input.lifespanMax}
+                            onChange={(e) => handleChangeInput(e)}
+                        />
                     </div>
                     <div>
                         <label>Image url:</label>
                         <input
                             type="text"
                             placeholder="Paste your image link..."
+                            name="image"
+                            value={input.image}
+                            onChange={(e) => handleChangeInput(e)}
                         />
                     </div>
                     <div>
                         <label>Temperaments</label>
                         <select>
                             {temperaments?.map((e) => (
-                                <option key={e} value={e}>
+                                <option
+                                    // name="temperament"
+                                    key={e}
+                                    value={input.e}
+                                    // onChange={(e) => handleChangeInput(e)}
+                                >
                                     {e}
                                 </option>
                             ))}
@@ -206,12 +228,7 @@ export default function CreateDog() {
                     <br />
                     <br />
 
-                    <button
-                        className="button-form"
-                        onSubmit={(e) => handleSubmit(e)}
-                    >
-                        Create breed
-                    </button>
+                    <button className="button-form">Create breed</button>
                 </form>
             </div>
         </div>

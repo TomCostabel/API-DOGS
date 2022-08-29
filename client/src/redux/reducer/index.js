@@ -4,6 +4,9 @@ import {
     SET_SORT,
     GET_TEMPERAMENTS,
     FILTER_BY_TEMPERAMENT,
+    GET_DOGS_BD,
+    GET_DOGS_API,
+    CREATE_DOG,
 } from "../actions/index.js";
 
 const initialState = {
@@ -111,6 +114,22 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 dogs: tempDogFilter,
+            };
+        case GET_DOGS_BD:
+            return {
+                ...state,
+                dogs: action.payload,
+            };
+
+        case GET_DOGS_API:
+            return {
+                ...state,
+                dogs: action.payload,
+            };
+        case CREATE_DOG:
+            return {
+                ...state,
+                dogs: action.payload,
             };
 
         default:

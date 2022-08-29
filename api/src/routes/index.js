@@ -8,7 +8,7 @@ const dog = require("./dog.js");
 const router = Router();
 router.use("/dogs", homeDogs);
 router.use("/temperaments", temps);
-router.use("/dog", dog);
+// router.use("/dog", dog);
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 

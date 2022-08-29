@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     filterByTemp,
     getAllDogs,
+    getDogsApi,
+    getDogsDB,
     getTemperaments,
     sortBy,
 } from "../../redux/actions";
@@ -10,6 +12,7 @@ import DogCard from "../DogCard/DogCard";
 import "../Dogs/Dogs.css";
 import Pagination from "../Pagination/Pagination";
 import NavBar from "../NavBar/NavBar";
+import Loading from "../Loading/Loading";
 
 const Dogs = () => {
     ///////////////////////////////////////////////--MIS STATES--//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -89,10 +92,14 @@ const Dogs = () => {
             <DogCard
                 key={e.id}
                 id={e.id}
-                image={e.image.url}
+                image={e.image.url ? e.image.url : e.image}
                 name={e.name}
                 temperament={e.temperament}
-                peso={e.weight.metric}
+                peso={
+                    e.weightMin && e.weightMax
+                        ? `${e.weightMin} - ${e.weightMax}`
+                        : e.weight.metric
+                }
             />
         );
     });
@@ -124,15 +131,21 @@ const Dogs = () => {
         setLoading(false);
     }, 1300);
 
+    const handleFilter = (e) => {
+        if (e.target.value === "DogsDByAPI") {
+            dispatch(getAllDogs());
+        }
+
+        if (e.target.value === "dogsDB") {
+            dispatch(getDogsDB());
+        }
+        if (e.target.value === "dogsAPI") {
+            dispatch(getDogsApi());
+        }
+    };
     ////////////////////////////////////////////////////////--RETURN--/////////////////////////////////////////////////////////////////////////////////////////////////
 
-    if (loading === true)
-        return (
-            <div>
-                <NavBar />
-                <h1>Loading...</h1>
-            </div>
-        );
+    if (loading === true) return <Loading />;
     return (
         <div>
             <NavBar />
@@ -149,6 +162,7 @@ const Dogs = () => {
 
                 <div className="select-position">
                     <select
+                        className="selector"
                         onChange={(e) => {
                             dispatch(sortBy(e.target.value));
                         }}
@@ -158,6 +172,7 @@ const Dogs = () => {
                         <option value="ASC">Z-A</option>
                     </select>
                     <select
+                        className="selector"
                         onChange={(e) => {
                             dispatch(sortBy(e.target.value));
                         }}
@@ -168,6 +183,7 @@ const Dogs = () => {
                     </select>
 
                     <select
+                        className="selector"
                         onChange={(e) => {
                             dispatch(filterByTemp(e.target.value));
                         }}
@@ -182,8 +198,12 @@ const Dogs = () => {
                         })}
                         ;
                     </select>
+                    <select onChange={handleFilter} className="selector">
+                        <option value="DogsDByAPI">Order DB/API</option>
+                        <option value="dogsDB">DB</option>
+                        <option value="dogsAPI">API </option>
+                    </select>
                 </div>
-
                 <Pagination
                     nextHandler={nextHandler}
                     items={perritos}

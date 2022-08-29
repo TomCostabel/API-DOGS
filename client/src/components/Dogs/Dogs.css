@@ -7,15 +7,34 @@
 }
 .buscador {
     /* margin-top: -75px; */
+
     border-radius: 10px;
     height: 25px;
     width: 200px;
     position: absolute;
-    left: 40px;
-    margin-top: 10px;
+    /* margin-inline: auto; */
+    margin-top: 60px;
 }
 .select-position {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* display: flex; */
+    /* margin-left: 140px; */
+    margin-top: 10px;
+    /* position: absolute; */
+
+    /* justify-content: center;
+
+    align-items: center; */
+
+    /* width: 250px;
+    height: 50px; */
+
+    /* border-radius: 50px; */
+    /* margin-inline: auto; */
+}
+
+.selector {
+    width: 150px;
+    height: 30px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
 }
